@@ -1,0 +1,25 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'application'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets.main.resources.srcDirs = ["src/main/resources"]
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compile("org.springframework.boot:spring-boot-starter-security")
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    runtimeOnly 'com.h2database:h2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.11.2'
+}
